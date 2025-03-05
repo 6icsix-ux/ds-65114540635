@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แก้ไขวิชา</title>
+</head>
+<body>
+    <h1>แก้ไขวิชา: {{ course.code }} - {{ course.name }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">บันทึก</button>
+    </form>
+    <a href="{% url 'course_list' %}">กลับไปหน้ารายการวิชา</a>
+</body>
+</html>

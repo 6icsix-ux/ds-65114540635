@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รายการวิชา</title>
+</head>
+<body>
+    <h1>รายการวิชา</h1>
+    <a href="{% url 'add_course' %}">เพิ่มรายวิชา</a>
+
+    <ul>
+        {% for course in courses %}
+            <li>
+                {{ course.code }} - {{ course.name }} 
+                <a href="{% url 'edit_course' course.code %}">[แก้ไข]</a>
+            </li>
+        {% empty %}
+            <p>ยังไม่มีข้อมูลรายวิชา</p>
+        {% endfor %}
+    </ul>
+</body>
+</html>
